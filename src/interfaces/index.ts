@@ -5,3 +5,8 @@ export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
     isCreatedByStatefulCreatePages: boolean;
   } & T;
 };
+
+export type IComponentProps = {
+  children?: JSX.Element[] | JSX.Element | string | number;
+  className?: string;
+};

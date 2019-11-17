@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layout';
+import { Layout } from '../components/organisms';
 import { ITemplateProps } from '../interfaces';
 import Utterances from '../lib/utterances';
 
@@ -11,6 +11,7 @@ type IPostTemplateProps = ITemplateProps<{
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   const { title, date, html } = props.pageContext;
+
   return (
     <Layout>
       <h2>{title}</h2>
