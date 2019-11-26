@@ -1,6 +1,6 @@
 import React from 'react';
-import { IComponentProps } from '../../../interfaces';
-import { Nav, Button, Div } from '../../atoms';
+import { IComponentProps } from '../../interfaces';
+import { Nav, Button, Div } from '../styledComponents';
 
 interface IMenuLayoutProps extends IComponentProps {
   open?: boolean;
@@ -19,8 +19,8 @@ const MenuLayout = (props: IMenuLayoutProps) => {
         left='2rem'
         flexDirection='column'
         justifyContent='space-around'
-        width='27px'
-        height='27px'
+        width='1.5rem'
+        height='1.5rem'
         background='transparent'
         border='none'
         padding='0'
@@ -34,11 +34,11 @@ const MenuLayout = (props: IMenuLayoutProps) => {
       <Nav
         open={props.open}
         background='white'
-        width='340px'
+        width='19rem'
         display='flex'
         flexDirection='column'
         textAlign='left'
-        padding='106px 45px'
+        padding='5.9rem 2.5rem'
         transition='transform 0.3s ease-in-out'
         position='absolute'
         top={0}

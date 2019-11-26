@@ -10,6 +10,7 @@ export interface IButtonProps extends IComponentProps {
   margin?: string;
   top?: number | string;
   left?: number | string;
+  right?: number | string;
   zIndex?: number;
   transition?: string;
   opacity?: number;
@@ -57,6 +58,7 @@ const StyledButton = styled.button`
   position: ${(props: IButtonProps) => props.position};
   top: ${props => props.top};
   left: ${props => props.left};
+  right: ${props => props.right};
   display: ${props => props.display};
   flex-direction: ${props => props.flexDirection};
   justify-content: ${props => props.justifyContent};
