@@ -4,7 +4,7 @@ import { ITemplateProps } from '../interfaces';
 import Utterances from '../lib/utterances';
 import { Div } from '../components/styledComponents';
 import { ThemeProvider } from '../hooks';
-import { FONT } from '../constants';
+import { FONT, THEME } from '../constants';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
@@ -18,26 +18,29 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   return (
     <ThemeProvider>
       <Layout>
-        {/* <Div background='rgba(189,189,189,0.2)'> */}
         <Div fontFamily={FONT.primary} fontSize='1.8em' fontWeight='bold'>
           {title}
         </Div>
         <Div
           fontFamily={FONT.primary}
           fontSize='0.9em'
-          color='gray'
+          color={THEME.light.date}
           margin='0.6em 0 1.3em 0'
         >
           {date}
         </Div>
-        {/* </Div> */}
-        {/* <Div fontFamily='godic' fontSize='1em' margin='0.5em 0'></Div> */}
         <hr />
-        <div
-          style={{ fontFamily: FONT.contents, marginTop: '2.5em' }}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <Utterances />
+        <Div
+          background={THEME.light.contentBackground}
+          boxShadow='0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.05)'
+          padding='2rem 1.8rem 1.5rem 1.8rem'
+        >
+          <div
+            style={{ fontFamily: FONT.contents, color: THEME.light.font }}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+          <Utterances />
+        </Div>
       </Layout>
     </ThemeProvider>
   );

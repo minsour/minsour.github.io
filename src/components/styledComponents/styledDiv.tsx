@@ -25,6 +25,7 @@ export interface IDivProps extends IComponentProps {
   color?: string;
   ref?: any;
   overflow?: string;
+  boxShadow?: string;
   hoverColor?: string;
   onClick?: () => void;
 }
@@ -50,6 +51,7 @@ const StyledDiv = styled.div`
   font-size: ${props => props.fontSize} !important;
   font-weight: ${props => props.fontWeight} !important;
   color: ${props => props.color} !important;
+  box-shadow: ${props => props.boxShadow};
   overflow: ${props => props.overflow};
   ref: ${props => props.ref};
   &:hover {
@@ -57,4 +59,6 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const Div = (props: IDivProps) => <StyledDiv {...props}>{props.children}</StyledDiv>;
+export const Div = (props: IDivProps) => (
+  <StyledDiv {...props}>{props.children}</StyledDiv>
+);

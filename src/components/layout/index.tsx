@@ -38,7 +38,7 @@ const Layout: React.FC<ILayoutProps> = (props: ILayoutProps) => {
       <Header siteTitle='민수르 블로그' />
       <Menu open={open} clickButton={clickButton} />
       <ThemeButton />
-      <Div margin='0 auto' maxWidth='46rem' padding='0 1.0875rem 1.45rem'>
+      <Div margin='0 auto' maxWidth='47rem' padding='0 1.0875rem 1.45rem'>
         <main>{props.children}</main>
         <footer>
           {/* <a href='https://www.gatsbyjs.org' style={{ marginLeft: '0.3em', color: 'black' }}>
