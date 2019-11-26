@@ -11473,6 +11473,11 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
+react-string-clamp@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-string-clamp/-/react-string-clamp-0.3.0.tgz#cd5bc2fb3fd5033e51bb91a2affeee4790ebd1de"
+  integrity sha512-c7b/zLHqSI7qmaX7slYYlNPt8lOHkMKJko2xybkriwcwNjdCkZfVmtxqmQFavXZvJSdw+iBc36GLqB6vEFW29g==
+
 react@^16.10.2, react@^16.9.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
