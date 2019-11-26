@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React, { useContext } from 'react';
 import { Div } from '../styledComponents';
 import { ThemeContext } from '../../hooks';
+import { FONT } from '../../constants';
 
 interface IHeaderProps {
   siteTitle?: string;
@@ -25,7 +26,7 @@ const Header = (props: IHeaderProps) => {
               color: theme.font,
               textDecoration: `none`,
               fontSize: '2.1rem',
-              fontFamily: 'BMHANNAAir',
+              fontFamily: FONT.primary,
               fontWeight: 'bold',
             }}
           >

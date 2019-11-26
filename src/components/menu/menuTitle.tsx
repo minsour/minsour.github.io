@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { IComponentProps } from '../../interfaces';
 import { Nav, Button, Div } from '../styledComponents';
 import { Link } from 'gatsby';
-import { useHover } from '../../hooks';
+import { useHover, ThemeContext } from '../../hooks';
+import { FONT } from '../../constants';
 
 interface IMenuTitleProps extends IComponentProps {
   title?: string;
@@ -13,6 +14,7 @@ interface IMenuTitleProps extends IComponentProps {
 const MenuTitle = (props: IMenuTitleProps) => {
   const hoverRef = useRef<HTMLDivElement>(undefined);
   const isHovered = useHover(hoverRef);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <>
@@ -21,13 +23,13 @@ const MenuTitle = (props: IMenuTitleProps) => {
           <Link
             to={props.path}
             style={{
-              color: 'black',
+              color: theme.font,
               fontSize: '1.3rem',
-              fontFamily: 'BMHANNAAir',
+              fontFamily: FONT.primary,
               fontWeight: 'bold',
             }}
           >
-            <Div color={isHovered && '#003399'}>{props.title}</Div>
+            <Div color={isHovered && theme.hover}>{props.title}</Div>
           </Link>
         </div>
       </Div>

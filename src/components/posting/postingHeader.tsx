@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Div } from '../styledComponents';
-import { categoryTitle } from '../../constants';
+import { categoryTitle, FONT } from '../../constants';
+import { ThemeContext } from '../../hooks';
 
 const PostingHeader = () => {
   const path = window.location.search;
+  const { theme } = useContext(ThemeContext);
 
   const getCategory = (path: string) => {
     if (!path) return 'total';
@@ -12,7 +14,13 @@ const PostingHeader = () => {
     }
   };
   return (
-    <Div fontFamily='BMHANNAAir' fontSize='1.1rem' fontWeight='bold' margin='1.8rem 0 2.2rem 0'>
+    <Div
+      fontFamily={FONT.primary}
+      fontSize='1.1rem'
+      fontWeight='bold'
+      margin='1.8rem 0 2.2rem 0'
+      color={theme.font}
+    >
       {categoryTitle.get(getCategory(path))}
     </Div>
   );

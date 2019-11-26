@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IComponentProps } from '../../interfaces';
 import { Nav, Button, Div } from '../styledComponents';
+import { ThemeContext } from '../../hooks';
 
 interface IMenuLayoutProps extends IComponentProps {
   open?: boolean;
@@ -8,6 +9,8 @@ interface IMenuLayoutProps extends IComponentProps {
 }
 
 const MenuLayout = (props: IMenuLayoutProps) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
       <Button
@@ -33,7 +36,7 @@ const MenuLayout = (props: IMenuLayoutProps) => {
       </Button>
       <Nav
         open={props.open}
-        background='white'
+        background={theme.contentBackground}
         width='19rem'
         display='flex'
         flexDirection='column'

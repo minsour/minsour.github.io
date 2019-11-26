@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IThemeType } from '../interfaces';
-import { THEME } from '../constants/color';
+import { THEME } from '../constants';
 
 export const ThemeContext = React.createContext(undefined);
 
