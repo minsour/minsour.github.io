@@ -32,7 +32,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
         <hr />
         <Div
           background={THEME.light.contentBackground}
-          boxShadow='0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.05)'
+          boxShadow='0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.07)'
           padding='2rem 1.8rem 1.5rem 1.8rem'
         >
           <div

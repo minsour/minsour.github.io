@@ -15,8 +15,9 @@ const PostingBody = ({ node }) => {
       key={node.id}
       margin='1rem 0'
       background={theme.contentBackground}
-      boxShadow='0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.05)'
+      boxShadow='0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.1)'
       padding='1.8rem 1.8rem 1.4rem 1.8rem'
+      hoverBackground={isHovered && 'rgba(240,240,240,0.5)'}
     >
       <div ref={hoverRef}>
         <Link

@@ -23,6 +23,7 @@ export interface ILiProps extends IComponentProps {
   boxShadow?: string;
   fontWeight?: string | number;
   hoverColor?: string;
+  hoverBackground?: string;
   onClick?: () => void;
 }
 
@@ -48,6 +49,7 @@ const StyledLi = styled.li`
   box-shadow: ${props => props.boxShadow} !important;
   &:hover {
     color: ${props => props.hoverColor};
+    background: ${props => props.hoverBackground} !important;
   }
 `;
 
