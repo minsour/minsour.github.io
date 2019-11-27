@@ -1,1 +1,1 @@
-{"data":{"allMarkdownRemark":{"edges":[{"node":{"excerpt":"아래 모든 케이스에서 오더 발생 전 유저들의 어카운트 상황은 모두 같음 BTC의 fee는 0.0005(0.05%) Case 1. 매도가 먼저 있을 때. firstOrder = askOrder\nfirstUnit = ask\nsecondOrder = bidOrder\nsecondUnit = bid\nsmallerOrder = min(askOrder.volume, …","frontmatter":{"title":"거래소에서의 잔액 처리 상황에 대한 로직 정리","path":"/blockchain/1","date":"2019-10-25 11:00:02"},"id":"bc4dc780-a631-57de-9799-ec698f6e3472"}}]}}}
+{"data":{"allMarkdownRemark":{"edges":[]}}}
