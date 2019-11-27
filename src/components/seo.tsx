@@ -15,9 +15,10 @@ interface ISeoProps {
   lang?: string;
   meta?: [];
   title: string;
+  home?: boolean;
 }
 
-const SEO = ({ description, lang, meta, title }: any) => {
+const SEO = ({ description, lang, meta, title, home }: any) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,7 +41,7 @@ const SEO = ({ description, lang, meta, title }: any) => {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={!home && `%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -83,6 +84,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  home: false,
 };
 
 SEO.propTypes = {
@@ -90,6 +92,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  home: PropTypes.bool,
 };
 
 export default SEO;

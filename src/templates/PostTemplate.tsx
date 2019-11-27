@@ -5,19 +5,22 @@ import Utterances from '../lib/utterances';
 import { Div } from '../components/styledComponents';
 import { ThemeProvider } from '../hooks';
 import { FONT, THEME } from '../constants';
+import SEO from '../components/seo';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
   title: string;
   date: string;
+  excerpt: any;
 }>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-  const { title, date, html } = props.pageContext;
+  const { title, date, html, excerpt } = props.pageContext;
 
   return (
     <ThemeProvider>
       <Layout>
+        <SEO title={title} description={excerpt} />
         <Div fontFamily={FONT.primary} fontSize='1.8em' fontWeight='bold'>
           {title}
         </Div>

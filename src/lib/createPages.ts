@@ -11,6 +11,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         edges {
           node {
             html
+            excerpt(truncate: true, pruneLength: 200)
             frontmatter {
               title
               date(formatString: "YYYY-MM-DD HH:mm:ss")
@@ -33,6 +34,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         html: node.html,
         title: node.frontmatter.title,
         date: node.frontmatter.date,
+        excerpt: node.excerpt,
       },
       component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
     });

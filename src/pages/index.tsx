@@ -9,7 +9,7 @@ const IndexPage: React.FC = () => {
   return (
     <ThemeProvider>
       <Layout>
-        <SEO title='민수르 블로그' />
+        <SEO title='민수르 블로그' home />
         <Posting />
       </Layout>
     </ThemeProvider>
