@@ -4,7 +4,7 @@ import { categoryTitle, FONT } from '../../constants';
 import { ThemeContext } from '../../hooks';
 
 const PostingHeader = () => {
-  const path = window.location.search;
+  const path = typeof window !== `undefined` && window.location.search;
   const { theme } = useContext(ThemeContext);
 
   const getCategory = (path: string) => {

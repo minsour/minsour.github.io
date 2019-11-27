@@ -13,7 +13,7 @@ const PostList = () => {
       return path.substr(path.indexOf('=') + 1, path.length - (path.indexOf('=') + 1));
     }
   };
-  const category = getCategory(window.location.search);
+  const category = getCategory(typeof window !== `undefined` && window.location.search);
 
   switch (category) {
     case 'total':

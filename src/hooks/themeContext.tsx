@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { IThemeType } from '../interfaces';
 import { THEME } from '../constants';
 
-export const ThemeContext = React.createContext(undefined);
+export const ThemeContext = React.createContext({
+  isLighted: true,
+  theme: {} as IThemeType,
+  changeTheme: {},
+});
 
 export const ThemeProvider = props => {
   const [isLighted, setIsLighted] = useState(true);
