@@ -1,12 +1,42 @@
+const postCssPresetEnv = require(`postcss-preset-env`);
+const postCSSNested = require('postcss-nested');
+const postCSSUrl = require('postcss-url');
+const postCSSImports = require('postcss-import');
+const cssnano = require('cssnano');
+const postCSSMixins = require('postcss-mixins');
+
 module.exports = {
   siteMetadata: {
     title: `민수르 블로그`,
-    description: `dev`,
-    author: `minsour`,
-    siteUrl: 'https://minsour.github.io',
+    description: `기술 블로그`,
+    copyrights: '',
+    author: `@minsour`,
+    logo: {
+      src: '',
+      alt: '',
+    },
+    logoText: '민수르 블로그',
+    defaultTheme: 'light',
+    postsPerPage: 5,
+    showMenuItems: 3,
+    menuMoreText: 'Show more',
+    mainMenu: [
+      {
+        title: '소개',
+        path: '/about',
+      },
+      {
+        title: '글',
+        path: '/showcase',
+      },
+      {
+        title: '검색',
+        path: '/example',
+      },
+    ],
   },
   plugins: [
-    `gatsby-plugin-typescript`,
+    `babel-preset-gatsby`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -19,10 +49,35 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/posts`,
+        path: `${__dirname}/src/posts`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          postCSSUrl(),
+          postCSSImports(),
+          postCSSMixins(),
+          postCSSNested(),
+          postCssPresetEnv({
+            importFrom: 'src/styles/variables.css',
+            stage: 1,
+            preserve: false,
+          }),
+          cssnano({
+            preset: 'default',
+          }),
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -30,36 +85,43 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              related: false,
+              noIframeBorder: true,
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 400,
-              height: 100,
+              maxWidth: 800,
               quality: 100,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
             },
           },
         ],
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `민수르 블로그`,
-        short_name: `민수르 블로그`,
+        name: `gatsby-starter-hello-friend`,
+        short_name: `hello-friend`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#292a2d`,
+        theme_color: `#292a2d`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/hello-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
